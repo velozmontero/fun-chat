@@ -1,0 +1,92 @@
+body {
+  margin: 0;
+}
+
+.loading-screen {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-screen div {
+  height: 50px;
+  width: 15px;
+  background-color: black;
+  margin: 5px;
+  border-radius: 10px;
+  animation: bar 800ms ease infinite alternate-reverse; 
+}
+
+.loading-screen div:nth-child(2) {
+  animation-delay: 200ms;
+}
+
+.loading-screen div:nth-child(3) {
+  animation-delay: 400ms;
+}
+
+.loading-screen div:nth-child(4) {
+  animation-delay: 600ms;
+}
+
+@keyframes bar {
+  from {
+    height: 50px;
+  }
+
+  to {
+    height: 150px;
+  }
+}
+
+
+.login-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.logo-container {
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.middle-section {
+  width: 100%;
+}
+
+.inputs-container {
+  width: 100%; 
+}
+
+.inputs-container input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 10px;
+  height: 50px;
+  font-size: 16px;
+}
+
+
+
+.buttons-container {
+  bottom: 0;
+}
+
+
+
+.social-login-btns {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.social-login-btns span {
+  margin: 20px;
+}
