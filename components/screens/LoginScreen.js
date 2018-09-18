@@ -1,5 +1,6 @@
 function mountLoginScreen() {
   $('#root').html(LoginScreen());
+  initLoginScreenListeners();
 }
 
 function LoginScreen() {
@@ -24,16 +25,22 @@ function LoginScreen() {
       </div>
 
       <div class="social-login-btns">
-        <span>Facebook</span>
-        <span>Google</span>
+        <span id="facebook-login-btn">Facebook</span>
+        <span id="google-login-btn">Google</span>
       </div>
     </div>
 
     <div class="buttons-container">
-      <div>Sign In</div>
-      <div>Sign Up</div>
+      <div id="signin-btn bg-color-1">Sign In</div>
+      <div id="signup-btn bg-color-2">Sign Up</div>
     </div>
   `;
 
   return container;
+}
+
+function initLoginScreenListeners() {
+  $('#google-login-btn').on('click', function(){
+    createPersistantSession(logInWithGoogle);
+  });
 }
