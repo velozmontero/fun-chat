@@ -17,7 +17,7 @@ function navigate(screen) {
       break;
   
     default:
-      mount404Screen();
+      $('root').html('');
       break;
   }
 }

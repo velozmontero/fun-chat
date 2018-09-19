@@ -20,7 +20,7 @@ function ChatScreen() {
       </div>
     </div>
 
-    <div class="chat-messages"></div>
+    <div id="chat-messages" class="chat-messages"></div>
 
     <div class="chat-input-btn-container">
       <input type="text" class="chat-input-msg" id="chat-input-msg" />
@@ -34,20 +34,43 @@ function ChatScreen() {
 }
 
 function initChatScreenListeners(messages) {
-  $('#signout-btn').on('click', signOut);
-
-  $('#chat-send-btn').on('click', function(e) {
+  let sendMessage = () => {
     let date = new Date();
     let text = $("#chat-input-msg").val();
 
     messages.push({
+      uid: user.uid,
+      email: user.email,
+      photoURL: user.photoURL,
       date: date,
-      text: text,
-      user: user.email,
-      photoURL: user.photoURL
+      text: text
     });
 
     $("#chat-input-msg").val('');
+  }
+
+  $('#signout-btn').on('click', signOut);
+
+  $('#chat-send-btn').on('click', sendMessage);
+
+  $('#chat-input-msg').keypress(function (e) {
+    if (e.keyCode === 13) {
+      sendMessage();
+    }
+  }).keyup(function () {
+    // we are going to do some cool stuff here 
+  });
+
+  messages.on('value', function (snapshot) {
+    let msgs = snapshot.val();
+
+    $('#chat-messages').html('');
+
+    for (let mid in msgs) {
+      let msg = msgs[mid];
+
+      $('#chat-messages').append(Message(msg));
+    }
   });
 }
 
