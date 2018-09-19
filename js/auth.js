@@ -48,6 +48,7 @@ function session() {
   firebase.auth().onAuthStateChanged(function (user) {
     window.user = user;
     if (user) {
+      console.log(user);
       navigate('chat-screen', user);
     }
     else {

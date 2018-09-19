@@ -154,11 +154,27 @@ body {
   overflow-y: auto;
 }
 
+.chat-input-btn-container {
+  display: flex;
+}
+
 .chat-input-msg {
   border: 1px solid #000;
   box-sizing: border-box;
   font-size: 16px;
   height: 60px;
-  width: 100%;
+  flex-grow: 1;
   padding: 0 10px;
+}
+
+.chat-send-btn {
+  flex: 0 0 60px;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chat-send-btn svg {
+  fill: #fff;
 }
