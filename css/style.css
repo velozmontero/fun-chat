@@ -3,6 +3,10 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+textarea:focus, input:focus{
+  outline: none;
+}
+
 .loading-screen {
   height: 100vh;
   display: flex;
@@ -47,10 +51,16 @@ body {
   flex-direction: column;
   align-items: center;
   height: 100vh;
+  background-color: #000;
+}
+
+.auth-icon {
+  font-size: 50px;
+  color: #93d9c5;
 }
 
 .logo-container {
-  height: 50%;
+  height: 40%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -70,15 +80,14 @@ body {
   align-items: center;
   width: 100%;
   height: 60px;
-  background-color: aqua;
 }
 
 .buttons-container div:nth-child(1) {
-  background-color: #00bcd4;
+  background-color: #93d9c5;
 }
 
 .buttons-container div:nth-child(2) {
-  background-color: rgb(223, 0, 0)
+  background-color: #E91E63;
 }
 
 .middle-section {
@@ -90,29 +99,60 @@ body {
 }
 
 .inputs-container input {
+  color: #fff;
   box-sizing: border-box;
   width: 100%;
   padding: 0 10px;
   height: 50px;
   font-size: 16px;
+  background-color: rgba(0,0,0,0);
+  border: none;
+  border-bottom: 1px solid #fff;
 }
 
-
+.inputs-container input:focus {
+  border-bottom: 1px solid #E91E63;
+} 
 
 .buttons-container {
   bottom: 0;
 }
 
-
-
 .social-login-btns {
-  margin-top: 30px;
   display: flex;
   justify-content: center;
+  margin-top: 30px;
 }
 
 .social-login-btns span {
   margin: 20px;
+}
+
+
+.sign-up-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background-color: #000;
+}
+
+.go-back {
+  cursor: pointer;
+  position: absolute;
+  padding: 10px;
+  left: 0;
+  top: 0;
+}
+
+.go-back svg:hover {
+  fill: #E91E63;
+}
+
+.go-back svg {
+  height: 30px;
+  width: 30px;
+  fill: #fff;
 }
 
 .chat-screen {
@@ -146,7 +186,7 @@ body {
 }
 
 .signout-btn svg:hover {
-  fill: #ff0000;
+  fill: #E91E63;
 }
 
 .chat-messages {

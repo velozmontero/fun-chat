@@ -25,14 +25,19 @@ function LoginScreen() {
       </div>
 
       <div class="social-login-btns">
-        <span id="facebook-login-btn">Facebook</span>
-        <span id="google-login-btn">Google</span>
+        <span id="facebook-login-btn">
+          <i class="auth-icon icon ion-logo-facebook"></i>
+        </span>
+
+        <span id="google-login-btn">
+          <i class="auth-icon icon ion-logo-google"></i>
+        </span>
       </div>
     </div>
 
     <div class="buttons-container">
-      <div id="signin-btn bg-color-1">Sign In</div>
-      <div id="signup-btn bg-color-2">Sign Up</div>
+      <div id="signin-btn">Sign In</div>
+      <div id="go-to-signup-screen-btn">Sign Up</div>
     </div>
   `;
 
@@ -42,5 +47,10 @@ function LoginScreen() {
 function initLoginScreenListeners() {
   $('#google-login-btn').on('click', function(){
     createPersistantSession(logInWithGoogle);
+  });
+
+  $('#go-to-signup-screen-btn').on('click', function() {
+    console.log('going to sign up screen');
+    navigate('sign-up-screen');
   });
 }
