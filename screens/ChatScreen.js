@@ -43,7 +43,7 @@ function initChatScreenListeners(messages) {
       email: user.email,
       photoURL: user.photoURL,
       date: date,
-      text: text
+      text: text,
     });
 
     $("#chat-input-msg").val('');
@@ -66,10 +66,24 @@ function initChatScreenListeners(messages) {
 
     $('#chat-messages').html('');
 
+    let currentPerson = '';
+
     for (let mid in msgs) {
       let msg = msgs[mid];
+      let showUsername = true;
 
-      $('#chat-messages').append(Message(msg));
+      if (user.email === msg.email) {
+        currentPerson = msg.email;
+        showUsername = false;
+      }
+      else if (currentPerson === msg.email) {
+        showUsername = false;
+      }
+      else {
+        currentPerson = msg.email;
+      }
+
+      $('#chat-messages').append(Message(msg, showUsername));
     }
     
     scroll();

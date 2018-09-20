@@ -32,6 +32,19 @@ function signUpWithEmailAndPassword(email, password) {
   });
 }
 
+function loginWithEmailAndPassword() {
+  let email = $('#email').val();
+  let password = $('#password').val();
+
+  firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    
+    alert(errorMessage);
+  });
+}
+
 function createPersistantSession(authenticate = () => console.log('no authentication passed to persistant session')) {
   firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
     .then(authenticate)

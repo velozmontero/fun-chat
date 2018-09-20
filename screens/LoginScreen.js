@@ -36,7 +36,7 @@ function LoginScreen() {
     </div>
 
     <div class="buttons-container">
-      <div id="signin-btn">Sign In</div>
+      <div id="login-btn">Sign In</div>
       <div id="go-to-signup-screen-btn">Sign Up</div>
     </div>
   `;
@@ -49,8 +49,11 @@ function initLoginScreenListeners() {
     createPersistantSession(logInWithGoogle);
   });
 
+  $('#login-btn').on('click', function() {
+    createPersistantSession(loginWithEmailAndPassword);
+  });
+
   $('#go-to-signup-screen-btn').on('click', function() {
-    console.log('going to sign up screen');
     navigate('sign-up-screen');
   });
 }
