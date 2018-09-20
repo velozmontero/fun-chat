@@ -71,6 +71,12 @@ function initChatScreenListeners(messages) {
 
       $('#chat-messages').append(Message(msg));
     }
+    
+    scroll();
   });
 }
 
+function scroll() {
+  let height = $('#chat-messages')[0].scrollHeight;
+  $('#chat-messages').scrollTop(height);
+}

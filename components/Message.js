@@ -1,8 +1,18 @@
 function Message(msg) {
   let container = document.createElement('div');
+  let isMe = msg.uid === user.uid;
+
+  container.style.textAlign = isMe ? 'right' : 'left';
+  container.style.margin = '20px';
 
   container.innerHTML = `
-    <div>
+    ${!isMe ? 
+      `<div class="msg-name">
+        ${msg.email.split('@')[0]}
+      </div>` 
+      : ''}
+    
+    <div class="${isMe ? 'msg-bubble-right' : 'msg-bubble-left'}">
       ${msg.text}
     </div>
   `
