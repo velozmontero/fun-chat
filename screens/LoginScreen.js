@@ -49,6 +49,10 @@ function initLoginScreenListeners() {
     createPersistantSession(logInWithGoogle);
   });
 
+  $('#facebook-login-btn').on('click', function () {
+    createPersistantSession(loginWithFacebook);
+  });
+
   $('#login-btn').on('click', function() {
     createPersistantSession(loginWithEmailAndPassword);
   });
